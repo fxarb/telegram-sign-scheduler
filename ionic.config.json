@@ -1,0 +1,7 @@
+{
+  "name": "misc-tool",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
