@@ -1,0 +1,12 @@
+<ion-content [fullscreen]="true">
+
+  <qrcode [qrdata]="authLink" [width]="256" [errorCorrectionLevel]="'M'" [allowEmptyString]="true"></qrcode>
+
+  <ion-button (click)="createQr()">Create Qr</ion-button>
+
+
+  <ion-input label="2-step verification" placeholder="000000" (ionInput)="onInputPassword($event)" [value]="password"></ion-input>
+
+  <ion-button (click)="providePassword()">Auth Password</ion-button>
+
+</ion-content>

@@ -1,0 +1,9 @@
+<ion-content [fullscreen]="true">
+
+  <ion-list [inset]="true">
+    <ion-item *ngFor="let folder of chatFolders">
+      <ion-label routerLink="/tabs/chats/{{folder.id}}">{{folder.title}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

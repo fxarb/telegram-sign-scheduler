@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item>
+      <ion-input label="API ID" placeholder="id" (ionInput)="onInputId($event)" [value]="apiId"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="API HASH" placeholder="hash" (ionInput)="onInputHash($event)" [value]="apiHash"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="saveApiIdHash()">Save ID & HASH</ion-button>
+  <div></div>
+  <ion-button (click)="initAirTg()">Init SDK</ion-button>
+  
+</ion-content>

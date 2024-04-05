@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start" routerLink="/tabs/chats">
+        <ion-button>
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{getTitle()}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list [inset]="true">
+    <ion-item-group *ngFor="let chat of chats">
+      <ion-item-divider>
+        <ion-label class="title">{{chat.title}}</ion-label>
+        <ion-toggle [checked]="!getDisable(chat.id)" (ionChange)="toggle(chat.id, $event)" [enableOnOffLabels]="true" aria-label="Toggle"></ion-toggle>
+      </ion-item-divider>
+      <ion-item>
+        <ion-datetime-button datetime="datetime{{chat.id}}"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime{{chat.id}}" value="{{getTime(chat.id)}}" (ionChange)="updateTime(chat.id, $event)"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+        <ion-select aria-label = "" placeholder="none" value="{{getSelect(chat.id)}}" (ionChange)="handleChange(chat.id, $event)">
+          <ion-select-option value="{{cmd}}" *ngFor="let cmd of getCmds(chat.id)">{{cmd}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+  <ion-button (click)="scheduleMessage()">Schedule Message</ion-button>
+
+
+</ion-content>
