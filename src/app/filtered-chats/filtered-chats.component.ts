@@ -216,11 +216,10 @@ export class FilteredChatsComponent implements OnInit, OnDestroy {
         }
         fns.push(mergeMap(it => schefuleFn()));
       }
-      let pre: Observable<any> = of(0);
-      fns.forEach(it => pre = pre.pipe(it));
-      pre.subscribe();
-
-    })
+    });
+    let pre: Observable<any> = of(0);
+    fns.forEach(it => pre = pre.pipe(it));
+    pre.subscribe();
 
   }
 
